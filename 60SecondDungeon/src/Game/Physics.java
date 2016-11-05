@@ -2,14 +2,14 @@ package Game;
 
 public class Physics {
 
-	private  int[] JumpInc = new int[] {0,-2,-4,-6,-8,-10,-12,-14,-16,-18,-19};
-	private  int[] FallInc = new int[] {0,2,4,6,8,10,12,14,16,18,20};
+	private  int[] JumpInc = new int[] {0,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-0,-0,-0,-2,-2,-2,-2,-0,0,0,0};
+	private  int[] FallInc = new int[] {0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2};
 	private  boolean jumping = false;
 	private  boolean falling = false;
 	private  int arrayPos = 0;
 	private  long Time;
 	
-	
+	gamePanel bob;
 	
 	public  void startJump() {
 		if(jumping){
@@ -30,11 +30,11 @@ public class Physics {
 			long currentTime = System.currentTimeMillis();
 			long timePassed = currentTime - Time;
 			float timeFloat = timePassed;
-			if(timePassed > 250){
+			if(timePassed > 50){
 				arrayPos++;
 				Time = System.currentTimeMillis();
 				
-				if(arrayPos>10){
+				if(arrayPos>20){
 					jumping = false;
 					
 					return 0;
@@ -51,7 +51,7 @@ public class Physics {
 			long currentTime = System.currentTimeMillis();
 			long timePassed = currentTime - Time;
 			float timeFloat = timePassed;
-			if(timePassed > 250){
+			if(timePassed > 50){
 				arrayPos++;
 				Time = System.currentTimeMillis();//get time
 				
@@ -61,7 +61,7 @@ public class Physics {
 				}
 			}
 			
-		return FallInc[arrayPos]*(timeFloat/250);
+		return FallInc[arrayPos]*(timeFloat/100);
 			
 			
 		}//end of jumping		
